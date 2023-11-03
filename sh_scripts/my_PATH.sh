@@ -21,7 +21,7 @@ echo -e "\n"
 
 read -p "Do you want to upgrade? [y/n]: " first_choice
 
-if [ "$sefirst_choicecond_choice" = "y" ] || [ "$first_choice" = "Y" ]; then
+if [ "$first_choice" = "y" ] || [ "$first_choice" = "Y" ]; then
         echo "You chose to continue."
         echo "sudo apt upgrade:"
         sudo apt upgrade
