@@ -22,11 +22,11 @@ if [ -n "$found_file" ]; then
 
     echo -e "Will convert $doc_adoc to $doc_md \n"
 
-    asciidoctor -b docbook $doc_adoc
+    asciidoctor -b docbook "$doc_adoc"
 
-    pandoc -f docbook -t markdown_strict $doc_xml -o $doc_md
+    pandoc -f docbook -t markdown_strict "$doc_xml" -o "$doc_md"
 
-    rm $doc_xml
+    rm "$doc_xml"
 
 else
     echo "adoc File '$1' not found."

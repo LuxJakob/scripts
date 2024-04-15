@@ -7,7 +7,7 @@ xdotool type "Du! This is your sh coffee time!"
 targettime=$(date -d '22:00' +%s)
 
 # Generate a random sleep time between 30 and 170 seconds
-RNDSleep=$((30 + RANDOM % 141))
+RNDSleep=$(shuf -i 30-170 -n 1)
 
 # Clear the screen
 clear
@@ -28,7 +28,7 @@ while true; do
     xdotool key F13
 
     # Display the current time
-    echo "$(date)"
+    echo "Key pressed at $(date)"
 done
 
 # End of the script

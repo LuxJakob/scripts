@@ -3,7 +3,7 @@
 echo -e "Script location: /home/jalux/.local/bin/my_PATH.sh \n"
 
 echo -e "Your PATH contains: \n"
-echo $PATH | tr ':' '\n'
+echo "$PATH" | tr ':' '\n'
 echo -e "\n"
 
 if [ "$1" = "u" ] || [ "$1" = "U" ]; then
@@ -19,7 +19,7 @@ echo -e "\napt list --upgradable:"
 apt list --upgradable
 echo -e "\n"
 
-read -p "Do you want to upgrade? [y/n]: " first_choice
+read -rp "Do you want to upgrade? [y/n]: " first_choice
 
 if [ "$first_choice" = "y" ] || [ "$first_choice" = "Y" ]; then
         echo "You chose to continue."

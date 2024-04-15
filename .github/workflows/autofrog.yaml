@@ -1,0 +1,53 @@
+---
+name: Supervisor Frog
+
+on:
+  schedule:
+    - cron: '0 0 * * 1-5'
+  workflow_dispatch:
+
+permissions: { }
+
+jobs:
+  make-contribution:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./sh_scripts
+    permissions: write-all
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          # Checkout with full commit history
+          fetch-depth: 0
+      - name: Frog automates tasks
+        run: |
+          ./autofrog.sh
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: "Jakob Lux"
+          author_email: "lux.jakob@gmail.com"
+          message: "Frog action"
+          # Set the files to commit - replace this with your own file paths
+          add: "frog.md"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: automated-frog
+          # Set the Git credentials - replace this with your own secrets
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: "Frog action"
+          commit-message: "Frog action"
+          branch: automated-frog
+          base: main
+          # Set the pull request body - replace this with your own content
+          body: "This pull request was created automatically by a frog."
+          # Set the Git credentials - replace this with your own secrets
+          token: ${{ secrets.GITHUB_TOKEN }}
+...

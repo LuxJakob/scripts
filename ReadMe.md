@@ -8,6 +8,8 @@ This is my personal collection of Shell and PowerShell scripts. Here, I will sto
 
 - **ps1_scripts**: Here, you will find my PowerShell scripts, specifically developed for Windows systems. They are helpful for automating tasks in a Windows environment.
 
+- **.github**: My workflows for CI functions
+
 ## How to Use Them
 
 Download and potentially grant permissions.
