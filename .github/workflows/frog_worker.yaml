@@ -1,9 +1,8 @@
 ---
-name: Supervisor Frog
+name: Frog Worker
 
 on:
-  schedule:
-    - cron: '0 0 * * 1-5'
+  repository_dispatch:
   workflow_dispatch:
 
 permissions: { }
@@ -22,9 +21,9 @@ jobs:
         with:
           # Checkout with full commit history
           fetch-depth: 0
-      - name: Frog automates tasks
+      - name: Frog delegates tasks
         run: |
-          ./autofrog.sh
+          ./frog_worker.sh
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "Script location: /home/jalux/.local/bin/my_PATH.sh \n"
+echo -e "/home/jack/repos/scripts/sh_scripts/my_PATH.sh \n"
 
 echo -e "Your PATH contains: \n"
 echo "$PATH" | tr ':' '\n'
