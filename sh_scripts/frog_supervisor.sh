@@ -4,7 +4,7 @@ REPO_OWNER="LuxJakob"
 REPO_NAME="scripts"
 GITHUB_TOKEN=$1
 ACTION_NAME="frog_worker.yaml"
-TODAYS_COMMITS=$((RANDOM % 5 + 1))
+TODAYS_COMMITS=$((RANDOM % 10 + 1))
 
 for ((i=1; i<=TODAYS_COMMITS; i++))
 do
