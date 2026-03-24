@@ -3,7 +3,7 @@ name: Daily Frog Croak (Keep-Alive)
 
 on:
   schedule:
-    - cron: '42 04 * * *'
+    - cron: "42 04 * * *"
   workflow_dispatch:
 
 permissions:
@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Run Database Update
         env:

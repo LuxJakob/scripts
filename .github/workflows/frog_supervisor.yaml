@@ -3,10 +3,10 @@ name: Frog Supervisor
 
 on:
   schedule:
-    - cron: '0 0 * * 1-6'
+    - cron: "0 0 * * 1-6"
   workflow_dispatch:
 
-permissions: { }
+permissions: {}
 
 jobs:
   make-contribution:
@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
         with:
           # Checkout with full commit history
           fetch-depth: 0

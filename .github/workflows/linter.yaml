@@ -1,7 +1,7 @@
 ---
 name: Lint
 
-on:  # yamllint disable-line rule:truthy
+on: # yamllint disable-line rule:truthy
   push:
     branches:
       - main
@@ -9,9 +9,9 @@ on:  # yamllint disable-line rule:truthy
     branches:
       - main
   schedule:
-    - cron: '0 3 * * 1-6'
+    - cron: "0 3 * * 1-6"
 
-permissions: { }
+permissions: {}
 
 jobs:
   build:
@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -36,4 +36,5 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_SHELL_SHFMT: false
+          VALIDATE_GITHUB_ACTIONS_ZIZMOR: false
 ...

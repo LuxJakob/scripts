@@ -5,7 +5,7 @@ on:
   repository_dispatch:
   workflow_dispatch:
 
-permissions: { }
+permissions: {}
 
 jobs:
   make-contribution:
@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
         with:
           # Checkout with full commit history
           fetch-depth: 0
@@ -39,7 +39,7 @@ jobs:
           # Set the Git credentials - replace this with your own secrets
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Open pull request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v8
         with:
           title: "Frog action"
           commit-message: "Frog action"
