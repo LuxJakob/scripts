@@ -1,0 +1,31 @@
+---
+name: Daily Frog Croak (Keep-Alive)
+
+on:
+  schedule:
+    - cron: '42 04 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  make-a-croak:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./sh_scripts
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Database Update
+        env:
+          PGHOST: ${{ secrets.SUPABASE_HOST }}
+          PGUSER: ${{ secrets.SUPABASE_USER }}
+          PGPASSWORD: ${{ secrets.SUPABASE_PASS }}
+          PGPORT: 6543
+          PGDATABASE: postgres
+        run: ./daily_croak.sh
+...
